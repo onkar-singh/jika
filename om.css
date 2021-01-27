@@ -1,0 +1,61 @@
+body *{font-family: auto, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+.form-inline input {
+  width: 90%;
+  vertical-align: middle;
+  margin: 5px 0px 12px 0;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+}
+
+.form-inline #bt {
+  padding: 10px 20px;
+  width: 100%;
+  background: dodgerblue;
+  border: 1px solid #ddd;
+  color: white;
+  cursor: pointer;
+}
+.form-inline span{background: #1e90ff;color:white;font-size: 22px;cursor: pointer;padding: 6px;margin: 0px 0px 0px -5px;}
+
+.form-inline #bt:hover,.form-inline span:hover {
+  background-color: royalblue;
+  color: white;
+}
+
+.ok {
+  margin: auto;
+  width: 35%;
+  border: 1px solid #ddd;
+}
+
+@media (max-width: 800px) {
+  .form-inline input {
+    margin: 15px 0;
+  }
+  .ok{width:100%;}
+}
+.kl{font-size: 24px;font-weight: bold;}.pl{font-size:12px}
+
+@media print {
+  body > .ok {visibility: hidden;position: absolute;}
+  img{display: block;}
+ }
+
+#myProgress {
+  border-radius: 15px;
+  background-color: #ddd;
+  margin: 5px;
+}
+
+#myBar {
+  width: 10%;
+  border-radius: 15px;
+  height: 30px;
+  background: #0e6dc9;
+  text-align: right;
+  line-height: 30px;
+  color: white;
+}

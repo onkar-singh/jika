@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Download Slide</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="om.css">
+<style>
+
+</style>
+</head>
+<body>
+<div class='ok'>
+<div style='text-align: center;padding: 20px'>
+<span class='kl'>Download Slide</span><br>
+<span class='pl'>Slideshare Downloader</span></div>
+
+  <div class="form-inline" style="padding: 15px">
+  <input type="text" id="ur" value='https://www.slideshare.net/accenture/accenture-tech-vision-2020-trend-1' placeholder="Enter Slideshare Link">
+  <span onclick="document.querySelector('#ur').value=''">×</span>
+  <button id='bt'>Download Slide</button>
+    <div id="myProgress">
+      <div id="myBar">10%</div>
+   </div>
+  </div>
+
+</div>
+<span id='gen'></span>
+<script>
+var ml;
+let jl=document.getElementById("bt");
+
+jl.onclick = function(){ 
+let jk=document.getElementById("ur").value;
+let pk='https://www.slideshare.net/api/oembed/2?url='+jk+'&format=json&callback=onkar';
+
+var script = document.createElement('script');
+script.setAttribute('src', pk);
+document.getElementsByTagName('body')[0].appendChild(script);
+
+};
+function onkar(json) {
+      ml=json.slide_image_baseurl;
+  let pl=ml.split("/")[3]+'/'+ml.split("/")[4];
+ 
+let mkv=json.html.split('href=')[1];
+let klj=mkv.split('" title=')[0];
+
+  for (let i = 1; i <= json.total_slides; i++) {
+        let bh = 'https://image.slidesharecdn.com/'+pl+'/'+klj.split('/')[4]+"-" + i + "-1024.jpg";
+        var xz = document.createElement("IMG");
+        xz.setAttribute("src", bh);
+        xz.setAttribute("width", "100%");
+        document.getElementById('gen').appendChild(xz);
+}
+  let bh1='https://image.slidesharecdn.com/'+pl+'/'+klj.split('/')[4]+"-" + '1' + "-1024.jpg";
+  const imgj = new Image();
+  imgj.onload = function() {
+  let hj='@page{size:'+this.width+'px '+this.height+'px;';
+  document.body.innerHTML+='<style>'+hj+'margin:0px;}'+'body{margin:0px}'+'</style>';}
+  imgj.src=bh1;
+}
+
+</script>
+
+</body>
+</html>
